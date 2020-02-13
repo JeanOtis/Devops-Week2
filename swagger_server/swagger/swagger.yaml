@@ -37,6 +37,7 @@
           "409":
             description: "already exists"
         x-swagger-router-controller: "swagger_server.controllers.default_controller"
+    /student/:
       get:
         summary: "Retrieve student by last name"
         description: "Retrieve student by last name"
