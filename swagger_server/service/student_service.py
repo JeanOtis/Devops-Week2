@@ -2,6 +2,7 @@ import json
 import logging
 import os
 import tempfile
+import sys
 
 from tinydb import TinyDB, Query
 from tinydb.middlewares import CachingMiddleware
@@ -51,17 +52,17 @@ def get_student_by_id(student_id, subject):
     return student
 
 def get_student_by_last_name(last_name):
-    # student = student_db.get(Student.last_name=last_name)
     query = Query()
     student = student_db.search(query.last_name == last_name)
+    print(student, file=sys.stderr)
 
     if not student:
         return None
     
     if len(student) > 0:
-        return None
+        return student[0]
 
-    return student[0]
+    return None
 
 def delete_student(student_id):
     student = student_db.get(doc_id=int(student_id))
