@@ -3,6 +3,7 @@
 import connexion
 
 from swagger_server import encoder
+from werkzeug.debug import DebuggedApplication
 
 
 def main():
