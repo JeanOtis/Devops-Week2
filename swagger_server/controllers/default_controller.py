@@ -1,5 +1,6 @@
 import connexion
 import six
+import sys
 
 from swagger_server.models.student import Student  # noqa: E501
 from swagger_server import util
@@ -55,3 +56,20 @@ def get_student_by_id(student_id, subject=None):  # noqa: E501
         return res
     return 'Not Found', 404
 
+def get_student_by_last_name(last_name):
+    """Find student by ID
+
+    Returns a single student # noqa: E501
+
+    :param student_id: ID of student to return
+    :type student_id: int
+    :param subject: The subject name
+    :type subject: str
+
+    :rtype: Student
+    """
+    
+    res = student_service.get_student_by_last_name(last_name)
+    if res:
+        return res
+    return 'Not Found', 404
