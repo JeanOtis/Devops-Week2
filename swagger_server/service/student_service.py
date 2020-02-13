@@ -60,7 +60,7 @@ def get_student_by_last_name(last_name):
         return None
     
     if len(student) > 0:
-        return student[0]
+        return Student.from_dict(student[0])
 
     return None
 
